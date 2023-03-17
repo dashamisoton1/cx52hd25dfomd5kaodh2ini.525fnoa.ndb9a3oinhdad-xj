@@ -25,7 +25,7 @@ if not DB.Get("Videos"):
 if not DB.Get("Bot"):
     DB.Define("Bot", "t.me/free_uploader_net_bot")
 if not DB.Get("Channel"):
-    DB.Define("Channel", "P0rnN3t")
+    DB.Define("Channel", "@P0rnN3t")
 if not DB.Get("Spons"):
     DB.Define("Spons", {})
 if not DB.Get("Users"):
@@ -61,7 +61,6 @@ async def kos(client, query):
 async def video(client, message: pyrogram.types.Message):
     if message.via_bot:
         return
-    print("video")
     __name = "".join([random.choice(al) for i in range(32)])
     DB.AddToDict("Videos", __name, message.video.file_id)
     await message.reply(text=f"Video Saved SuccessFully \n Link : {DB.Get('Bot')}?start={__name}", reply_to_message_id=message.id)
@@ -71,12 +70,10 @@ async def video(client, message: pyrogram.types.Message):
 async def user(client, message: pyrogram.types.Message):
     if not message.from_user.id in DB.Get("Users"):
         DB.AddToList("Users", message.from_user.id)
-    print("text")
     txt = message.text
     if txt.startswith("/start "):
         # ______________________#
         __sponss = DB.Get("Spons")
-        print(__sponss)
         for i in __sponss.keys():
             try:
                 await app.get_chat_member(chat_id=__sponss[i], user_id=message.from_user.id)
@@ -84,7 +81,6 @@ async def user(client, message: pyrogram.types.Message):
                 await message.reply("برای حمایت از من جوین کانال/گروه زیر بده :) ", reply_to_message_id=message.id, reply_markup=spon(pyrogram.types, DB.Get("Spons"),f"{DB.Get('Bot')}?start={txt.split(' ')[-1]}"))
                 return
         else:
-            print('not')
             pass
         # ______________________#
             __vids = DB.Get("Videos")
@@ -128,7 +124,6 @@ async def user(client, message: pyrogram.types.Message):
             try:
                 await app.copy_message(i, m.chat.id, m.id)
             except Exception as e:
-                print(e)
         await __i.edit_text("Sent")
 
 app.run()
