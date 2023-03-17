@@ -18,9 +18,9 @@ DB = JDB.DB("dbs/bot")
 if not DB.Get("Videos"):
     DB.Define("Videos", {})
 if not DB.Get("Bot"):
-    DB.Define("Bot", input("UN Bot:"))
+    DB.Define("Bot", "https://t.me/free_uploader_net_bot")
 if not DB.Get("Channel"):
-    DB.Define("Channel", input("Channel bot: "))
+    DB.Define("Channel", "@P0rnN3t")
 if not DB.Get("Spons"):
     DB.Define("Spons", {})
 if not DB.Get("Users"):
