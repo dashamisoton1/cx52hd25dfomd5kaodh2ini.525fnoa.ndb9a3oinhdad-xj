@@ -7,21 +7,12 @@ try:
     os.mkdir("dbs")
 except:
     pass
-pr = None
-inp = input("Proxy (ip:port/0): ")
-if inp != "0":
-    pr = {
-        "scheme": "socks5",
-        "hostname": inp.split(":")[0],
-        "port": int(inp.split(":")[1])
-    }
 
 app = pyrogram.Client(
     "dbs/bot",
     api_id=10972622,
     api_hash="46a68ad7647433f42b4e4b2e51e679af",
-    bot_token=input("Token: "),
-    proxy=pr
+    bot_token="6132450064:AAHfrLshQYseDYZrZMdVxFpDTSp09zOxDy4"
 )
 DB = JDB.DB("dbs/bot")
 if not DB.Get("Videos"):
