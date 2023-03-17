@@ -20,7 +20,7 @@ app = pyrogram.Client(
     "dbs/bot",
     api_id=10972622,
     api_hash="46a68ad7647433f42b4e4b2e51e679af",
-    bot_token="dadadaad",
+    bot_token="5853981278:AAEws7CbcdI0nSKJjn1CXNgKypnu86FtGQs",
     proxy=pr
 )
 DB = JDB.DB("dbs/bot")
