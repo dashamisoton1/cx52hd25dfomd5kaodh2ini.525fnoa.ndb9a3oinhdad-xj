@@ -123,8 +123,8 @@ async def user(client, message: pyrogram.types.Message):
         for i in DB.Get("Users"):
             try:
                 await app.copy_message(i, m.chat.id, m.id)
-            except Exception as e:
-                await message.reply(text=e, reply_to_message_id=message.id)
+            except :pass
+        print(" e")
         await __i.edit_text("Sent")
 
 app.run()
